@@ -5,10 +5,12 @@ import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
 
 import systemReducer from "./system/reducer";
 import authReducer from "./auth/reducer";
+import camerasReducer from "./cameras/reducer";
 
 const rootReducer = combineReducers({
   system: systemReducer,
-  auth: authReducer
+  auth: authReducer,
+  cameras: camerasReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
