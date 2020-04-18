@@ -1,19 +1,22 @@
 import axios from "axios";
 import { User } from "../store/auth/types";
 
-const createUser: (data: User) => Promise<void> = async (data) => {
+const createUser: (data: User) => Promise<User> = async (data) => {
   try {
-    await axios.post("/users", data);
+    const { data: user } = await axios.post("/users", data);
+
+    return user as User;
   } catch (error) {
     console.log(error);
+    return null;
   }
 };
 
 const getUser: (id: string) => Promise<User> = async (id) => {
   try {
-    const result:User = await axios.get("/users/" + id);
+    const { data } = await axios.get("/users/" + id);
 
-    return result;
+    return data as User;
   } catch (error) {
     console.log(error);
     return null;

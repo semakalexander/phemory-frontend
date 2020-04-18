@@ -7,6 +7,7 @@ export type User = {
   birthday?: string;
   gender?: string;
   avatar?: string;
+  token?: string;
 } | null
 
 export interface AuthState {

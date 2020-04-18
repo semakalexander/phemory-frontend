@@ -73,9 +73,13 @@ const signIn: () => Promise<User | null> = async () => {
           lastName: data.last_name,
         }, ['id', 'first_name', 'last_name']) as User;
 
-        usersApi.createUser(user);
+        const userFromApi = await usersApi.createUser(user);
 
-        return user;
+        if (userFromApi?.token) {
+          axios.defaults.headers.Authorization = 'Bearer ' + userFromApi.token
+        }
+
+        return userFromApi;
       case "cancel":
         return null;
     }
