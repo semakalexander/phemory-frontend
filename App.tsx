@@ -7,7 +7,7 @@ import store from "./src/store";
 
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://192.168.0.108:9000/api'
+axios.defaults.baseURL = 'http://192.168.1.100:9000/api'
 
 const App = () => (
   <Provider store={store}>

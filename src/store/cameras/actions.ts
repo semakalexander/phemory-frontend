@@ -3,9 +3,11 @@ import {
   SET_CAMERAS,
   ADD_CAMERA,
   SET_CAMERAS_LOADING_STATUS,
+  SET_ACTIVE_CAMERA,
   SetCamerasAction,
   AddCameraAction,
   SetCamerasLoadingStatusAction,
+  SetActiveCameraAction,
 } from "./types";
 
 const setCameras: (cameras: Camera[]) => SetCamerasAction = (cameras) => ({
@@ -25,4 +27,11 @@ const setCamerasLoadingStatus: (
   payload: status,
 });
 
-export { setCameras, addCamera, setCamerasLoadingStatus };
+const setActiveCamera: (camera: Camera) => SetActiveCameraAction = (
+  camera
+) => ({
+  type: SET_ACTIVE_CAMERA,
+  payload: camera,
+});
+
+export { setCameras, addCamera, setCamerasLoadingStatus, setActiveCamera };

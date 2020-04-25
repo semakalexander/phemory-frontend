@@ -3,11 +3,13 @@ import {
   CamerasActionTypes,
   SET_CAMERAS,
   ADD_CAMERA,
-  SET_CAMERAS_LOADING_STATUS
+  SET_CAMERAS_LOADING_STATUS,
+  SET_ACTIVE_CAMERA
 } from "./types";
 
 const initialState: CamerasState = {
   cameras: [],
+  activeCamera: null,
   isLoading: false
 };
 
@@ -33,6 +35,12 @@ const authReducer = (
         ...state,
         isLoading: action.payload
       };
+    }
+    case SET_ACTIVE_CAMERA: {
+      return {
+        ...state,
+        activeCamera: action.payload
+      }
     }
     default:
       return state;

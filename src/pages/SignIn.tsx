@@ -1,25 +1,38 @@
-import React, { useCallback } from "react";
+import React, { SFC, useCallback } from "react";
+import { useDispatch } from "react-redux";
 
 import { View, Text, StyleSheet, ImageBackground, Button } from "react-native";
 
 import * as facebookApi from "../api/facebook";
 
 import Logo from "../components/Logo";
-import { useDispatch } from "react-redux";
 import { setUser } from "../store/auth/actions";
+
+import { SignInScreenNavigationProp } from "../types/navigation";
 
 const bgImg = {
   uri:
     "https://images.unsplash.com/photo-1585811662150-cd7a8590ca3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2495&q=80",
 };
 
-const SignIn = () => {
+interface ISignInProps {
+  navigation: SignInScreenNavigationProp
+}
+
+
+const SignIn: SFC<ISignInProps> = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const signIn = useCallback(async () => {
     const user = await facebookApi.signIn();
 
+    if (!user) {
+      return;
+    }
+
     dispatch(setUser(user));
+
+    navigation.navigate('ChooseCamera')
   }, [dispatch]);
 
   return (
