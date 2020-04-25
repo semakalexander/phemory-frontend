@@ -47,13 +47,13 @@ const ChooseCamera: SFC<IChooseCameraProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {cameras.map(camera => (
-        <View style={styles.cardContainer}>
+        <View key={camera.id} style={styles.cardContainer}>
           <TouchableNativeFeedback
-            key={camera?.id}
+            key={camera.id}
             onPress={() => choose(camera)}
           >
             <Card
-              title={camera?.name}
+              title={camera.name}
               img={camera?.image}
             />
           </TouchableNativeFeedback>

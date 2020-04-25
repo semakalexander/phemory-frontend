@@ -69,7 +69,7 @@ const AddCamera: SFC<IAddCameraProps> = ({ navigation }) => {
 
     const camera = await camerasApi.createCamera({ name, image: imageBase64 })
 
-    dispatch(addCamera(camera))
+    if (camera) dispatch(addCamera(camera))
 
     setIsLoading(false)
 

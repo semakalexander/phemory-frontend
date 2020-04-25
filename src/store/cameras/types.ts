@@ -4,11 +4,11 @@ export type Camera = {
   image?: string,
   userId?: string,
   createdAt?: string
-} | null
+}
 
 export type CamerasState = {
   cameras: Camera[];
-  activeCamera: Camera;
+  activeCamera: Camera | null;
   isLoading: boolean;
 }
 
