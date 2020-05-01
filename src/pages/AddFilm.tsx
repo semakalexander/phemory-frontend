@@ -2,25 +2,25 @@ import React, { useState, useMemo, useCallback, SFC } from 'react'
 import { useTypedSelector } from '../store'
 import { useDispatch } from 'react-redux'
 
-import { Text, View, StyleSheet, ActivityIndicator, Button } from 'react-native'
+import { View, StyleSheet, ActivityIndicator, Button } from 'react-native'
 import Inputs from '../components/Inputs'
 
-import * as lensesApi from '../api/lenses'
+import * as filmsApi from '../api/films'
 
-import { addLens } from '../store/lenses/actions'
+import { addFilm } from '../store/films/actions'
 
-import { AddLensScreenNavigationProp } from '../types/navigation'
+import { AddFilmScreenNavigationProp } from '../types/navigation'
 
-interface IAddLensProps {
-  navigation: AddLensScreenNavigationProp
+interface IAddFilmProps {
+  navigation: AddFilmScreenNavigationProp
 }
 
-const AddLens: SFC<IAddLensProps> = ({ navigation }) => {
+const AddFilm: SFC<IAddFilmProps> = ({ navigation }) => {
   const [name, setName] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
   const dispatch = useDispatch()
 
-  const { activeCamera } = useTypedSelector(state => state.cameras)
+  const { activeLens } = useTypedSelector(state => state.lenses)
 
   const inputs = useMemo(() => [
     { key: 'name', value: name, onChange: setName }
@@ -29,15 +29,15 @@ const AddLens: SFC<IAddLensProps> = ({ navigation }) => {
   const submit = useCallback(async () => {
     setIsLoading(true)
 
-    if (!activeCamera) return navigation.navigate('ChooseCamera')
+    if (!activeLens) return navigation.navigate('ChooseLens')
 
-    const lens = await lensesApi.createLens({ name, cameraId: activeCamera.id })
+    const film = await filmsApi.createFilm({ name, lensId: activeLens.id })
 
-    if (lens) dispatch(addLens(lens))
+    if (film) dispatch(addFilm(film))
 
     setIsLoading(false)
 
-    navigation.navigate('ChooseLens')
+    navigation.navigate('ChooseFilm')
   }, [dispatch, name])
 
   return (
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AddLens
+export default AddFilm

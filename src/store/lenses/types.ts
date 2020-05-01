@@ -1,9 +1,15 @@
 export type Lens = {
-  id?: string;
+  id: string;
   name: string,
   image?: string,
   cameraId: string,
   createdAt?: string
+}
+
+export type LensBody = {
+  name: string,
+  cameraId: string,
+  image?: string,
 }
 
 export type LensesState = {
@@ -38,8 +44,8 @@ export type SetActiveLensAction = {
 }
 
 
-export type LensesActionTypes = 
-  SetLensesAction | 
-  AddLensAction | 
-  SetLensesLoadingStatusAction | 
+export type LensesActionTypes =
+  SetLensesAction |
+  AddLensAction |
+  SetLensesLoadingStatusAction |
   SetActiveLensAction

@@ -37,3 +37,8 @@ export type ChooseFilmScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'ChooseFilm'
 >;
+
+export type AddFilmScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'AddFilm'
+>;

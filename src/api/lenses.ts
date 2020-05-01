@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Lens } from "../store/lenses/types";
+import { Lens, LensBody } from "../store/lenses/types";
 
-const createLens: (data: Lens) => Promise<Lens | null> = async (data) => {
+const createLens: (data: LensBody) => Promise<Lens | null> = async (data) => {
   try {
     const { data: lens } = await axios.post("/lenses", data);
 

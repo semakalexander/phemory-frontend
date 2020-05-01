@@ -27,6 +27,8 @@ const ChooseCamera: SFC<IChooseLensProps> = ({ navigation }) => {
   const fetchLenses = useCallback(async () => {
     dispatch(setLensesLoadingStatus(true))
 
+    if (!activeCamera) return navigation.navigate('ChooseCamera')
+
     const lenses = await lensesApi.getLenses(activeCamera.id);
 
     if (lenses) {

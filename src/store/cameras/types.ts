@@ -6,6 +6,11 @@ export type Camera = {
   createdAt?: string
 }
 
+export type CameraBody = {
+  name: string,
+  image?: string,
+}
+
 export type CamerasState = {
   cameras: Camera[];
   activeCamera: Camera | null;

@@ -7,12 +7,14 @@ import systemReducer from "./system/reducer";
 import authReducer from "./auth/reducer";
 import camerasReducer from "./cameras/reducer";
 import lensesReducer from "./lenses/reducer";
+import filmsReducer from "./films/reducer";
 
 const rootReducer = combineReducers({
   system: systemReducer,
   auth: authReducer,
   cameras: camerasReducer,
-  lenses: lensesReducer
+  lenses: lensesReducer,
+  films: filmsReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

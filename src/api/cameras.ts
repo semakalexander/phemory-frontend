@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Camera } from "../store/cameras/types";
+import { Camera, CameraBody } from "../store/cameras/types";
 
-const createCamera: (data: Camera) => Promise<Camera | null> = async (data) => {
+const createCamera: (data: CameraBody) => Promise<Camera | null> = async (data) => {
   try {
     const { data: camera } = await axios.post("/cameras", data);
 
