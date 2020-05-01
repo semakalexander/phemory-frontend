@@ -27,3 +27,13 @@ export type ChooseLensScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'ChooseLens'
 >;
+
+export type AddLensScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'AddLens'
+>;
+
+export type ChooseFilmScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'ChooseFilm'
+>;

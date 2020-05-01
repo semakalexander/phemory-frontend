@@ -13,7 +13,7 @@ const initialState: CamerasState = {
   isLoading: false
 };
 
-const authReducer = (
+const camerasReducer = (
   state = initialState,
   action: CamerasActionTypes
 ): CamerasState => {
@@ -47,4 +47,4 @@ const authReducer = (
   }
 }
 
-export default authReducer
+export default camerasReducer

@@ -1,8 +1,8 @@
 export type Camera = {
-  id?: string;
+  id: string;
   name: string,
   image?: string,
-  userId?: string,
+  userId: string,
   createdAt?: string
 }
 
@@ -38,8 +38,8 @@ export type SetActiveCameraAction = {
 }
 
 
-export type CamerasActionTypes = 
-  SetCamerasAction | 
-  AddCameraAction | 
-  SetCamerasLoadingStatusAction | 
+export type CamerasActionTypes =
+  SetCamerasAction |
+  AddCameraAction |
+  SetCamerasLoadingStatusAction |
   SetActiveCameraAction

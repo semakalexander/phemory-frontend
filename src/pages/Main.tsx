@@ -8,6 +8,8 @@ import SignIn from "./SignIn";
 import ChooseCamera from "./ChooseCamera";
 import AddCamera from "./AddCamera";
 import ChooseLens from "./ChooseLens";
+import ChooseFilm from "./ChooseFilm";
+import AddLens from "./AddLens";
 
 type RootStackParamList = {
   Splash: undefined;
@@ -15,6 +17,8 @@ type RootStackParamList = {
   ChooseCamera: undefined;
   AddCamera: undefined;
   ChooseLens: undefined;
+  AddLens: undefined;
+  ChooseFilm: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>()
@@ -29,6 +33,8 @@ const Main = () => {
           <RootStack.Screen name="ChooseCamera" component={ChooseCamera} />
           <RootStack.Screen name="AddCamera" component={AddCamera} />
           <RootStack.Screen name="ChooseLens" component={ChooseLens} />
+          <RootStack.Screen name="AddLens" component={AddLens} />
+          <RootStack.Screen name="ChooseFilm" component={ChooseFilm} />
         </RootStack.Navigator>
       </View>
     </NavigationContainer>
